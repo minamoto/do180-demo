@@ -1,7 +1,7 @@
-DO180 Demo
+# DO180 Demo
 
 
-(1) Podのみ
+## (1) Podのみ
 
 ```
 apiVersion: v1
@@ -19,28 +19,21 @@ spec:
       protocol: TCP
 ```
 
-(2) Deployのみ
+## (2) Deploy/Service (Kubernetes)
 ```
 oc create deployment hello-pod2 --image quay.io/redhattraining/hello-world-nginx:v1.0
+oc expose deploy hello-pod2 --port=8080
 ```
 
-(3) Deploy/Service (Kubernetes)
+## (3) Deploy/Service (OpenShift)
 ```
-oc create deployment hello-pod3 --image quay.io/redhattraining/hello-world-nginx:v1.0
+oc new-app --name hello-pod3 --docker-image quay.io/redhattraining/hello-world-nginx:v1.0 
 oc get all
-oc expose deploy hello-pod3 --port=8080
 oc expose svc hello-pod3
-```
-
-(3) Deploy/Service (OpenShift)
-```
-oc new-app --name hello-pod4 --docker-image quay.io/redhattraining/hello-world-nginx:v1.0 
-oc get all
-oc expose svc hello-pod4
 oc get route
 ```
 
-(4) Podをスケールアップ
+## (4) Podをスケールアップ
 ```
-oc scale --replicas=4 deploy/hello-pod4
+oc scale --replicas=3 deploy/hello-pod3
 ```
