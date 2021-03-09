@@ -27,7 +27,7 @@ oc expose deploy hello-pod2 --port=8080
 
 ## (3) Deploy/Service (OpenShift)
 ```
-oc new-app --name hello-pod3 --docker-image quay.io/redhattraining/hello-world-nginx:v1.0 
+oc new-app --name hello-pod3 --docker-image quay.io/redhattraining/hello-world-nginx:v1.0 --as-deployment-config 
 oc expose svc hello-pod3
 oc get route
 ```
