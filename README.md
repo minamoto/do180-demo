@@ -1,7 +1,8 @@
 DO180 Demo
-==============
 
-(1) pod.yaml (Podのみ)
+
+(1) Podのみ
+
 ---
 apiVersion: v1
 kind: Pod
