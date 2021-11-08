@@ -21,18 +21,18 @@ spec:
 
 ## (2) Deploy/Service (Kubernetes)
 ```
-oc create deployment hello-pod2 --image quay.io/redhattraining/hello-world-nginx:v1.0
-oc expose deploy hello-pod2 --port=8080
+kubectl create deployment hello-pod2 --image quay.io/redhattraining/hello-world-nginx:v1.0
+kubectl expose deployment hello-pod2 --port=8080
 ```
 
 ## (3) Deploy/Service (OpenShift)
 ```
 oc new-app --name hello-pod3 --docker-image quay.io/redhattraining/hello-world-nginx:v1.0 
-oc expose svc hello-pod3
+oc expose service hello-pod3
 oc get route
 ```
 
 ## (4) Podをスケールアップ
 ```
-oc scale --replicas=3 deploy/hello-pod3
+oc scale --replicas=3 deployment/hello-pod3
 ```
